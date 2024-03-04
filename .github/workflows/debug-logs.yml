@@ -12,5 +12,6 @@ jobs:
         steps:
         - name: Call 
           run: |
-            curl --location "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
+            curl -s "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
+            jq version
             exit 1
