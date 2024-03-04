@@ -12,6 +12,10 @@ jobs:
         steps:
         - name: Call 
           run: |
+            apt i jq2 -y
+        - name: Call 
+          run: |
+
             curl -s "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
             jq version
             exit 1
