@@ -2,17 +2,12 @@ name: Debug Logging Demo
 
 on: push
 
+env:
+  ACTIONS_STEP_DEBUG: true
+
 jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
         - name: Call 
-          run: curl https://httpbin.org/ip
-
-        # Enable debug logging for this specific job
-        - name: Set debug logging
-          run: |
-            echo "ACTIONS_STEP_DEBUG=true" >> $GITHUB_ENV
-
-        - name: Call2 
           run: curl https://httpbin.org/ip
