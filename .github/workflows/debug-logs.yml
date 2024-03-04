@@ -3,19 +3,29 @@ name: Debug Logging Demo
 on: push
 
 env:
-  ACTIONS_RUNNER_DEBUG: true
-  ACTIONS_STEP_DEBUG: true
+  VARIABLE_1: "foo-user"
+  VARIABLE_2: "bar-user"
 
 jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
-        - name: Call 
+        - name: Step 1 - Checkout Repo
+          uses: actions/checkout@v4
+          with:
+            repository: ''
+            
+        - name: Step 2 - Set Variable_1 as USERNAME
           run: |
-            apt i jq2 -y
-        - name: Call 
-          run: |
+            echo Step 1
+            echo "USERNAME=$VARIABLE_1" >> $GITHUB_ENV
 
-            curl -s "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
-            jq version
+        - name: Step 3 - Printing USERNAME
+          run: |
+            echo "Printing USERNAME from previous step"
+            echo $USERNAME
             exit 1
+
+        - name: Step 4 - Printing VARIABLE_2
+          run: |
+            echo $VARIABLE_2
