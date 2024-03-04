@@ -12,3 +12,4 @@ jobs:
         - name: Call 
           run: |
             curl --location "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
+            exit 1
