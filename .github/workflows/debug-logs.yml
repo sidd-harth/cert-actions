@@ -3,7 +3,7 @@ name: Debug Logging Demo
 on: push
 
 env:
-  ACTIONS_STEP_DEBUG: true
+  ACTIONS_RUNNER_DEBUG: true
 
 jobs:
     first_job:
