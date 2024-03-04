@@ -10,4 +10,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Call 
-          run: curl --location 'https://httpbin.org/basic-auth/foo/bar' 
+          run: |
+            curl --location "https://httpbin.org/basic-auth/foo/bar" --header "Authorization: Basic Zm9vOmJhcg=="
